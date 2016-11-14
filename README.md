@@ -10,8 +10,10 @@
 	- dto: 定义请求的数据结构和返回的数据结构(对应javabean)
 		- ElemeOrder: `OrderApiService`中接口需要的请求和返回数据结构 
 	- exception: 接口exception定义
-		- SystemException: 继续自pylon的`SystemException`
-		- UserException: 自定义Exception 
+		- ServiceException: 表示业务相关的异常(如用户不存在，红包已过期等)
+		- ServerException: 表示服务内部的异常(如数据库连接超时，redis服务不可用等)
+		- java.lang.RuntimeException: 非受检异常, 计入熔断统计
+		- 其余异常参考: [Pylon内置Rpc异常](http://wiki.ele.to:8090/pages/viewpage.action?pageId=20328819)
 - dao: model定义,和DB table crud一一对应，供`service`中接口实现使用
 	- ElemeOrderDao: eleme_order表对应的数据模型，和eleme_order表字段对应
 	- resources: DB连接，DB事务等
@@ -80,6 +82,6 @@ pylon原理: 提供对应的接口(interface)定义给pylon，服务方实现对
 
 ## 其他
 
-- maven-assembly-plugin: 打包，组织代码结构。maven负责打包class文件，resources文件成正确的目录结构
+- 打包: 使用maven-assembly-plugin插件，配合dist.xml，conf目录存放配置文件，bin目录存放可执行脚本，lib目录存放所有依赖jar包。
 - profile: 环境参数相关（和开发无关，略）
 - 多module/多package的结构都可以
