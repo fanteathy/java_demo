@@ -1,0 +1,13 @@
+*.class
+/*/class/*
+/*/classes/*
+/*/.gitignore
+/target/*
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+/*/.idea/
+.idea
