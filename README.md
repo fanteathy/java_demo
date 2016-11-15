@@ -8,7 +8,8 @@
 	- api: 接口定义
 		- OrderApiService: 提供的eleme_order相关的api 
 	- dto: 定义请求的数据结构和返回的数据结构(对应javabean)
-		- ElemeOrder: `OrderApiService`中接口需要的请求和返回数据结构 
+		- ElemeOrder: `OrderApiService`中接口需要的请求和返回数据结构
+	- form: 也可以使用dto定义返回的数据结构，form定义请求的数据结构
 	- exception: 接口exception定义
 		- ServiceException: 表示业务相关的异常(如用户不存在，红包已过期等)
 		- ServerException: 表示服务内部的异常(如数据库连接超时，redis服务不可用等)
@@ -21,7 +22,19 @@
 	- 发布相关定义(发布相关变量等)
 - docs: 文档
 - service: 接口实现,业务逻辑定义。可以加一层BIZ层, service抽象成webapi, biz写详细业务逻辑。依赖`api`和`dao`
-	- OrderApiServiceImpl: `OrderApiService`中各种接口的实现    
+	- conf: 主要的配置文件
+		- Configure.json: 最重要的配置文件。
+			- serverConf: 服务端配置
+				- initializer: IServiceInitializer实现类类名
+				- interfaces: 提供服务的接口名列表
+			- clientConfs: 客户端配置, 有依赖服务则需要声明
+				- interfaces: 调用的接口名列表
+	- OrderApiServiceImpl: `OrderApiService`中各种接口的实现
+	- soa: 实现Pylon接口
+		- ServiceInitializer: 服务初始化接口, 服务启动的时候调用对应init方法
+			- getImpl: 返回指定接口对应的实现实例(所以能够通过提供的interface名找到对应的方法实现类)
+	- MainApplication: `程序启动入口`, 启动基于Pylon的服务(其实是调用`ServiceInitializer.init()`) 。也可以通过me.ele.core.container.Container作为MainClass启动。(start.sh中配置启动入口)
+- common: 定义公共组件
 - pom.xml: 父级pom定义  
 
 ## 开发流程:
