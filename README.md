@@ -49,6 +49,12 @@
 	- start.sh
 	- accept request
 
+## 发布相关
+
+发布最主要的脚本为位于根目录下的`$appid_build.yml`文件
+
+具体过程参考[$appid_build.yml文件说明](docs/kuangjiagongju-39677747-071216-1111-18.pdf)
+
 ## Pylon相关
 
 ### 原理
