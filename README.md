@@ -2,6 +2,8 @@
 
 基于pylon的服务,包括代码结构及开发流程。
 
+sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://git.elenet.me/pts/sample-project](https://git.elenet.me/pts/sample-project)
+
 ## 代码结构
 
 - api: 接口定义相关
