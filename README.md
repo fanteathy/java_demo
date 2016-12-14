@@ -69,6 +69,17 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 	- `自己构造client测试`，需要另外写代码构造client
 	- `通过postman测试`, 本地需要启动服务
 
+## SOA调用
+
+因为pylon初始化时已经`initClients`了，所以直接构造client即可: 
+
+```
+TimeLineSearchService timeLineSearchService =
+                (TimeLineSearchService) ClientUtil.getContext().getClients(TimeLineSearchService.class);
+```
+
+直接调用对应接口即可。
+
 ## 发布相关
 
 发布最主要的脚本为位于根目录下的`$appid_build.yml`文件
