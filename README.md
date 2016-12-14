@@ -254,6 +254,15 @@ pylon原理: 提供对应的接口(interface)定义给pylon，服务方实现对
 
 此处接口定义在`me.ele.pts.api.OrderApiService`中
 
+## Bean注入
+
+`ServiceInitializer.init()`初始化资源。
+
+`appContext = new AnnotationConfigApplicationContext(MainApplication.class);`会将`MainApplication.class`作为配置文件注入所有bean（因为`MainApplication`使用了`@Configuration`注解）
+
+同时因为在`MainApplication`中定义了bean组件扫描的package: `@ComponentScan(basePackages = "me.ele.fin.settlement.impl")`,所以定义在`me.ele.fin.settlement.impl`下所有的bean会在初始化时注入IOC容器。
+
+
 ## 脚本
 
 - crontab sh对应的java程序main函数（不推荐）
