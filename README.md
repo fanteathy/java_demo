@@ -59,7 +59,12 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 
 - 在单元测试代码中测试
 	- 测试其他服务接口，需要构造`client`从huskar获取服务列表，发起RPC请求
-	- 测试本服务接口，直接测试Service层对应接口实现代码即可。不需要通过接口调用，方便debug 
+		- 参考`me.ele.pts.sample.test.base.TestBase`的定义
+			- `ClientUtil.getContext().initClients("deploy/conf/configure.json");`初始化Configure.json中定义的客户端，所以可以在`SampleServiceTest`中直接调用`TimeLineSearchService timeLineSearchService =
+                (TimeLineSearchService) ClientUtil.getContext().getClients(TimeLineSearchService.class);`构造`TimelineSearchService`的客户端（从alpha环境中获取配置），并调用对应接口
+	- 测试本服务接口，直接测试Service层对应接口实现代码即可。不需要通过接口调用，方便debug
+		- 参考`me.ele.pts.sample.test.base.TestBase`的定义
+			- `new AnnotationConfigApplicationContext(MainApplication.class);`注入`MainApplication`中定义的Bean，所以可以在`SampleServiceTest`中调用`SampleApi sampleService = ApplicationContextUtil.context.getBean(SampleApi.class);`获取对应的Bean,直接调用对应的方法即可 
 - RPC测试，不能很好地debug，因为是RPC请求
 	- `自己构造client测试`，需要另外写代码构造client
 	- `通过postman测试`, 本地需要启动服务
