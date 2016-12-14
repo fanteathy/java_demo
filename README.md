@@ -53,6 +53,17 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 	- start.sh
 	- accept request
 
+## 测试
+
+测试方法有以下几种:
+
+- 在单元测试代码中测试
+	- 测试其他服务接口，需要构造`client`从huskar获取服务列表，发起RPC请求
+	- 测试本服务接口，直接测试Service层对应接口实现代码即可。不需要通过接口调用，方便debug 
+- RPC测试，不能很好地debug，因为是RPC请求
+	- `自己构造client测试`，需要另外写代码构造client
+	- `通过postman测试`, 本地需要启动服务
+
 ## 发布相关
 
 发布最主要的脚本为位于根目录下的`$appid_build.yml`文件
