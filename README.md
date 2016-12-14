@@ -6,6 +6,8 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 
 也可以参考[settle项目](https://git.elenet.me/fin/settle)
 
+***最好的***参考项目[compensation-service](https://git.elenet.me/pts/compensation-service)
+
 ## 代码结构
 
 - api: 接口定义相关
