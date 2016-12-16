@@ -69,7 +69,7 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 			- `new AnnotationConfigApplicationContext(MainApplication.class);`注入`MainApplication`中定义的Bean，所以可以在`SampleServiceTest`中调用`SampleApi sampleService = ApplicationContextUtil.context.getBean(SampleApi.class);`获取对应的Bean,直接调用对应的方法即可 
 - RPC测试，不能很好地debug，因为是RPC请求
 	- `自己构造client测试`，需要另外写代码构造client
-	- `通过postman测试`, 本地需要启动服务
+	- `通过postman测试`, 本地需要启动服务，或者通过`json-rpc`协议使用postman测试alpha环境
 
 ## SOA调用
 
