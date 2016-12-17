@@ -72,6 +72,39 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 	- `自己构造client测试`，需要另外写代码构造client
 	- `通过postman测试`, 本地需要启动服务，或者通过`json-rpc`协议使用postman测试alpha环境
 
+### POSTMAN使用方法如下
+
+#### method
+
+post
+
+#### body
+
+```
+{
+  "ver": "1.0",
+  "soa": {"req":"12345","rpc":"clientAppId|1.4.5.2"},
+  "context": {"type":"lpt"},
+  "iface": "me.ele.fin.settlement.api.soa.ISettlementSampleApi",
+  "method": "helloWorld",
+  "args": {"form":"{\"name\":\"test\"}"},
+  "metas": {}
+}
+```
+
+#### response
+
+```
+{
+  "ver": "1.0",
+  "soa": {
+    "req": "12345"
+  },
+  "result": "{\"message\":\"hello world test\"}",
+  "ex": null
+}
+```
+
 ## SOA调用
 
 因为pylon初始化时已经`initClients`了，所以直接构造client即可: 
