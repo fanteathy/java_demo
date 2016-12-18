@@ -19,7 +19,7 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 		- enum: 对于其中请求参数常量的使用。***可以将常量定义在enum中***，传递的时候使用enum实例即可，使用enum表达的信息更为丰富 
 	- exception: 接口exception定义
 		- ServiceException: 表示业务相关的异常(如用户不存在，红包已过期等)
-		- ServerException: 表示服务内部的异常(如数据库连接超时，redis服务不可用等)
+		- SystemException: 表示服务内部的异常(如数据库连接超时，redis服务不可用等)
 		- java.lang.RuntimeException: 非受检异常, 计入熔断统计
 		- 其余异常参考: [Pylon内置Rpc异常](http://wiki.ele.to:8090/pages/viewpage.action?pageId=20328819)
 - dao: model定义,和DB table crud一一对应，供`service`中接口实现使用
