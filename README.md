@@ -15,7 +15,7 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 		- OrderApiService: 提供的eleme_order相关的api 
 	- dto: 定义请求的数据结构和返回的数据结构(对应javabean)
 		- ElemeOrder: `OrderApiService`中接口需要的请求和返回数据结构
-	- form: 也可以使用dto定义返回的数据结构，form定义请求的数据结构
+	- form: 也可以使用dto定义返回的数据结构，form定义请求的数据结构 ***注意(important): 最好不要定义form的constructor***
 		- enum: 对于其中请求参数常量的使用。***可以将常量定义在enum中***，传递的时候使用enum实例即可，使用enum表达的信息更为丰富 
 	- exception: 接口exception定义
 		- ServiceException: 表示业务相关的异常(如用户不存在，红包已过期等)
