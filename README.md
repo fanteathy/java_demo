@@ -76,7 +76,7 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 
 #### method
 
-post
+post: `http://vpca-fin-settle-query-1.vm.elenet.me:8092/rpc`
 
 #### body
 
@@ -104,6 +104,47 @@ post
   "ex": null
 }
 ```
+
+也可以在本地启动服务，进行测试，参考`App_id_build.yml`中的步骤:
+
+```
+cd settle
+mvn clean package -U -f settle-settlement/pom.xml -DskipTests=true
+chmod +x settle-settlement/settle-settlement-service/deploy/ci_success.sh
+settle-settlement/settle-settlement-service/deploy/ci_success.sh
+cd settle/settle-settlement/settle-settlement-service/deploy
+sh start.sh
+```
+
+post: `http://localhost:8092/rpc`
+
+body
+
+```
+{
+  "ver": "1.0",
+  "soa": {"req":"12345","rpc":"clientAppId|1.4.5.2"},
+  "context": {"type":"lpt"},
+  "iface": "me.ele.fin.settlement.api.soa.ISettlementService",
+  "method": "processBizSettle",
+  "args": {"form":"{\"restaurantId\":123, \"OrderId\": 123, \"transNo\": \"2016\", \"businessType\": 1, \"operateType\":1, \"comment\": \"hello\", \"amount\": 1.23, \"compensationRate\": 1.23}"},
+  "metas": {}
+}
+```
+
+response:
+
+```
+{
+  "ver": "1.0",
+  "soa": {
+    "req": "12345"
+  },
+  "result": "null",
+  "ex": null
+}
+```
+
 
 ## SOA调用
 
