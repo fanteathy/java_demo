@@ -72,6 +72,22 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 	- `自己构造client测试`，需要另外写代码构造client
 	- `通过postman测试`, 本地需要启动服务，或者通过`json-rpc`协议使用postman测试alpha环境
 
+### 从IDE启动服务
+
+按照`fin.settle_job_build.yml`定义的顺序部署好文件后。
+
+配置[Run/Debug Configurations]:
+
+设置[Application] `fin.settle_job`的:
+
+- `Main class`: `me.ele.fin.job.MainApplication`
+- `Working directory`: `/Users/joshua/finance/settle/settle-job/settle-job-service/deploy`。定位到`deploy`目录下，因为经过`ci_success.sh`后，所有的`conf`和`lib`都位于此目录下
+- `Use classpath of module`: `settle-job-service`
+
+直接启动，启动过程中观察对应的日志
+
+***启动后可以使用`postman`发送请求,在IDE中设置断点，直接进行Debug***
+
 ### POSTMAN使用方法如下
 
 #### method
