@@ -39,7 +39,7 @@ sample可以参考[sample-project](docs/sample-project.zip), repo地址[https://
 	- OrderApiServiceImpl: `OrderApiService`中各种接口的实现
 	- soa: 实现Pylon接口
 		- ServiceInitializer: 服务初始化接口, 服务启动的时候调用对应init方法
-			- getImpl: 返回指定接口对应的实现实例(所以能够通过提供的interface名找到对应的方法实现类)
+			- getImpl: 返回指定接口对应的实现实例(所以能够通过提供的interface名找到对应的方法实现类)(另一种获取实现类的方式: 使用动态代理, RMI实现的RPC)
 	- MainApplication: `程序启动入口`, 启动基于Pylon的服务(其实是调用`ServiceInitializer.init()`) 。也可以通过me.ele.core.container.Container作为MainClass启动。(start.sh中配置启动入口)
 - common: 定义公共组件
 - pom.xml: 父级pom定义  
